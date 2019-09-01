@@ -1,5 +1,23 @@
 import React from 'react'
 
+// const App = ({ notes }) => {
+//   const rows = () => notes.map(note =>
+//     <Note
+//       key={note.id}
+//       note={note}
+//     />
+//   )
+
+//   return (
+//     <div>
+//       <h1>Notes</h1>
+//       <ul>
+//         {rows()}
+//       </ul>
+//     </div>
+//   )
+// }
+
 const Header = props =>
   <h1>{props.course}</h1>
 
@@ -15,20 +33,21 @@ const Content = props => (
 )
 
 const Total = props => {
-  const total = props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises
+  var totalAmount = props.parts.reduce(function(sum, part) {
+    return sum + part.exercises
+  }, 0)
 
-  return <p>Total Number of exercises {total}</p>
+  return <p><b>HI! Total of {totalAmount} exercises </b></p>
 }
-  
 
 const Course = (props) => {
-  console.log(props)
+  // console.log(props)
   const { course } = props
   return (
     <div>
     <Header course={course.name} />
     <Content parts={course.parts} />
-      {/* <Total parts={course.parts} /> */}
+    <Total parts={course.parts} />
     </div>
   )
 }
