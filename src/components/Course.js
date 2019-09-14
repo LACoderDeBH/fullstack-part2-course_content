@@ -26,7 +26,7 @@ const Course = (props) => {
     <div>
     <Header course={course.name} />
     <Content parts={course.parts} />
-    <strong> Total of {totalAmount.exercises} exercises </strong>
+    <strong> total of {totalAmount.exercises} exercises </strong>
     </div>
   )
 }
